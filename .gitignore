@@ -7,7 +7,12 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
-/app/src/main/res/drawable
+/app/src/main/res/drawable/algo.bmp
+/app/src/main/res/drawable/maths.bmp
+/app/src/main/res/drawable/isabelle.bmp
+/app/src/main/res/drawable/linux.bmp
+/app/src/main/res/drawable/si.bmp
+/app/src/main/res/drawable/physique.bmp
 .DS_Store
 /build
 /captures
