@@ -126,7 +126,7 @@ public class Game extends AppCompatActivity {
                 }
                 else if(clics > 2550 && clics < 5300) {
 
-                    head.setImageResource(R.drawable.isab elle);
+                    head.setImageResource(R.drawable.isabelle);
 
                 }
                 else if(clics > 5300 && clics < 10850) {
