@@ -60,16 +60,6 @@ public class Game extends AppCompatActivity {
         cps();
         updater();
 
-        ((Button)findViewById(R.id.retour))
-                // Nous paramétrons un écouteur sur l’événement ‘click’ de ce bouton
-                .setOnClickListener(new View.OnClickListener()
-                                    {
-                                        public void onClick(View v)
-                                        {
-                                            this.LectureActivity.finish(); // LectureActivity est mon activité
-                                        }
-                                    }
-                );
 
         leaderboard.setOnClickListener(new View.OnClickListener() {
             @Override
