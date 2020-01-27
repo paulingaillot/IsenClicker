@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "887570986436",
+    "firebase_url": "https://isen-clicker.firebaseio.com",
+    "project_id": "isen-clicker",
+    "storage_bucket": "isen-clicker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887570986436:android:1d2cdf410ea2ca2070a091",
+        "android_client_info": {
+          "package_name": "fr.ybsi.isenclicker3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "887570986436-uq21kel1161uss4ct788cdhhgq8nk8s6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLEn_NRQNB0e1IxjBz7N6OEntACP_jksY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "887570986436-uq21kel1161uss4ct788cdhhgq8nk8s6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
