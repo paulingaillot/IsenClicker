@@ -15,4 +15,3 @@ drawable
 /app/build
 .externalNativeBuild
 .cxx
-.gitignore

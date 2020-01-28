@@ -36,6 +36,7 @@ public class Game extends AppCompatActivity {
     private static ArrayList<Long> array= new ArrayList<Long>();
     private TextView username;
     private ImageView leaderboard;
+    private ImageView BackPack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class Game extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
 
+        this.BackPack = findViewById(R.id.imageView5);
         this.head = findViewById(R.id.imageView);
         this.total = findViewById(R.id.textView2);
         this.cpm = findViewById(R.id.textView4);
@@ -60,6 +62,17 @@ public class Game extends AppCompatActivity {
         cps();
         updater();
 
+        BackPack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent Menu = new Intent(getApplicationContext(), BackPack.class);
+                Menu.putExtra("username", user);
+                startActivity(Menu);
+                //finish();
+
+            }
+        });
 
         leaderboard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,7 +204,7 @@ public class Game extends AppCompatActivity {
 
             @Override
             public void run() {
-
+                try {
                 ArrayList<Integer> array2= new ArrayList<Integer>();
                 int i =0;
                 for(Long value : array) {
@@ -201,14 +214,13 @@ public class Game extends AppCompatActivity {
                     i++;
                 }
 
-                try {
                     for (int j : array2) {
                         array.remove(j);
                     }
+                cpm.setText(""+array.size());
                 }catch(Exception e){
 
                 }
-                cpm.setText(""+array.size());
 
             }
         };
