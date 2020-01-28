@@ -68,7 +68,7 @@ public class Game extends AppCompatActivity {
                 Intent Menu = new Intent(getApplicationContext(), LeaderBoard.class);
                 Menu.putExtra("username", user);
                 startActivity(Menu);
-                finish();
+                //finish();
 
             }
         });
@@ -79,7 +79,7 @@ public class Game extends AppCompatActivity {
 
                 Intent Menu = new Intent(getApplicationContext(), shop.class);
                 startActivity(Menu);
-                finish();
+                //finish();
             }
         });
 

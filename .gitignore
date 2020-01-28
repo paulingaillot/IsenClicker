@@ -1,9 +1,3 @@
-app/src/main/res/drawable/algo.bmp
-app/src/main/res/drawable/maths.bmp
-app/src/main/res/drawable/isabelle.bmp
-app/src/main/res/drawable/linux.bmp
-app/src/main/res/drawable/si.bmp
-app/src/main/res/drawable/physique.bmp
 *.iml
 .gradle
 /local.properties
