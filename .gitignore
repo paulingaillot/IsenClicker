@@ -1,6 +1,5 @@
 *.iml
 *.bmp
-drawable
 .gradle
 /local.properties
 /.idea/caches
