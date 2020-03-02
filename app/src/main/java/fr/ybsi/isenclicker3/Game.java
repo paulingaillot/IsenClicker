@@ -2,7 +2,11 @@ package fr.ybsi.isenclicker3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -37,11 +43,14 @@ public class Game extends AppCompatActivity {
     private TextView username;
     private ImageView leaderboard;
     private ImageView BackPack;
+    private static ImageView Save;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
         this.BackPack = findViewById(R.id.imageView5);
@@ -51,6 +60,7 @@ public class Game extends AppCompatActivity {
         this.shop = findViewById(R.id.imageView3);
         this.username = findViewById(R.id.textView6);
         this.leaderboard = findViewById(R.id.imageView2);
+        this.Save = findViewById(R.id.imageView17);
 
         //username.setText("Ca marche !!!! "+UserHelper.getUser("ybsi"));
 
@@ -100,6 +110,7 @@ public class Game extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 clics++;
+                Save.setImageResource(R.drawable.save);
                 array.add(System.currentTimeMillis());
 
                 ArrayList<Integer> array2= new ArrayList<Integer>();
@@ -192,7 +203,9 @@ public class Game extends AppCompatActivity {
             @Override
             public void run() {
                 UserHelper.updatePoints(user, clics);
-                   array.add(System.currentTimeMillis());
+
+                Save.setImageResource(R.drawable.saved);
+
             }
         };
         ScheduledFuture<?> UptimeHandle = scheduler1.scheduleAtFixedRate(Uptime_Update,30 , 30, TimeUnit.SECONDS);

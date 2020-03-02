@@ -2,6 +2,8 @@ package fr.ybsi.isenclicker3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -21,6 +23,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class BackPack extends AppCompatActivity {
 
@@ -33,10 +36,12 @@ public class BackPack extends AppCompatActivity {
     private ImageView case7;
     private ImageView case8;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_back_pack);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         this.case1 = findViewById(R.id.imageView6);
         this.case2 = findViewById(R.id.imageView7);
@@ -56,19 +61,14 @@ public class BackPack extends AppCompatActivity {
 
                 ArrayList<String> map = new ArrayList<String>();
                 for(DocumentSnapshot doc :snapshot.getDocuments()) {
-                    try {
-                        String username1 = doc.get("name").toString();
-
-                        map.add(username1);
-                    }catch(Exception e){
-
-                    }
+                    Map<String, Boolean> map1 = (Map)doc.get("map");
+                    if(map1.get("maths") == true) case1.setImageResource(R.drawable.maths);
                 }
 
                 for(i= 0+8*(page-1); i<(8*page); i++){
 
                     if((i%8)+1 == 1) {
-                        case1.setImageResource(R.drawable.lock);
+                       // case1.setImageResource(R.drawable.lock);
                     }
                     else if((i%8)+1 == 2) case2.setImageResource(R.drawable.lock);
                     else if((i%8)+1 == 3) case3.setImageResource(R.drawable.lock);
