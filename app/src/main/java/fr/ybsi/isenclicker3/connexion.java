@@ -65,12 +65,16 @@ public class connexion extends AppCompatActivity {
                         String username = username1.getText().toString();
                         String password = password1.getText().toString();
                         int points =  Integer.parseInt(snapshot.get("points").toString());
+                        int money =  Integer.parseInt(snapshot.get("money").toString());
+
 
                         if(password.equals(passwd)) {
 
                             Intent game = new Intent(getApplicationContext(), Game.class);
                             game.putExtra("username", username);
                             game.putExtra("points",points);
+                            game.putExtra("password", passwd);
+                            game.putExtra("money", money);
                             startActivity(game);
                             finish();
 

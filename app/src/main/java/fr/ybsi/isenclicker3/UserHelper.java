@@ -35,6 +35,20 @@ public class UserHelper {
         return UserHelper.getUsersCollection().document(username).get();
     }
 
+    static User user;
+    public static User getUser(String username, String password) {
+        Task<DocumentSnapshot> task = UserHelper.getUsersCollection().document(username).get();
+
+
+        task.addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                      @Override
+                                      public void onSuccess(DocumentSnapshot snapshot) {
+                                           user = (User)snapshot.getData();
+                                      }
+        });
+        return user;
+    }
+
     // --- UPDATE ---
 
     public static Task<Void> updateUsername(String username, String password) {

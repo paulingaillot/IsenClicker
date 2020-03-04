@@ -38,6 +38,7 @@ public class Game extends AppCompatActivity {
     private static String user;
     private static int clics;
     private static TextView cpm;
+    private static int money;
     private TextView total;
     private static ArrayList<Long> array= new ArrayList<Long>();
     private TextView username;
@@ -65,9 +66,11 @@ public class Game extends AppCompatActivity {
         //username.setText("Ca marche !!!! "+UserHelper.getUser("ybsi"));
 
         user = getIntent().getStringExtra("username");
+        final String passwd = getIntent().getStringExtra("password");
         clics = getIntent().getIntExtra("points", 0);
         total.setText("" + clics);
         username.setText("User : " + user);
+        money = getIntent().getIntExtra("money", 0);
 
         cps();
         updater();
@@ -101,6 +104,8 @@ public class Game extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent Menu = new Intent(getApplicationContext(), shop.class);
+                Menu.putExtra("username", user);
+                Menu.putExtra("password", passwd);
                 startActivity(Menu);
                 //finish();
             }

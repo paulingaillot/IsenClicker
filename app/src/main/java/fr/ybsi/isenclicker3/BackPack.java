@@ -52,37 +52,56 @@ public class BackPack extends AppCompatActivity {
         this.case7 = findViewById(R.id.imageView12);
         this.case8 = findViewById(R.id.imageView13);
 
-        Task<QuerySnapshot> task = UserHelper.getHeadsCollection().get();
-        task.addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        String user = getIntent().getStringExtra("username");
+
+        Task<DocumentSnapshot> task = UserHelper.getUser(user);
+        task.addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
-            public void onSuccess(QuerySnapshot snapshot) {
-                int i= 0;
-                int page = 1;
+            public void onSuccess(DocumentSnapshot snapshot) {
+                    Map<String, Boolean> map1 = (Map<String, Boolean>)snapshot.get("map");
 
-                ArrayList<String> map = new ArrayList<String>();
-                for(DocumentSnapshot doc :snapshot.getDocuments()) {
-                    Map<String, Boolean> map1 = (Map)doc.get("map");
-                    if(map1.get("maths") == true) case1.setImageResource(R.drawable.maths);
-                }
-
-                for(i= 0+8*(page-1); i<(8*page); i++){
-
-                    if((i%8)+1 == 1) {
-                       // case1.setImageResource(R.drawable.lock);
+                    try {
+                        if (map1.get("maths") == true) case1.setImageResource(R.drawable.maths);
+                    }catch(Exception e){
+                        case1.setImageResource(R.drawable.lock);
                     }
-                    else if((i%8)+1 == 2) case2.setImageResource(R.drawable.lock);
-                    else if((i%8)+1 == 3) case3.setImageResource(R.drawable.lock);
-                    else if((i%8)+1 == 4) case4.setImageResource(R.drawable.lock);
-                    else if((i%8)+1 == 5) case5.setImageResource(R.drawable.lock);
-                    else if((i%8)+1 == 6) case6.setImageResource(R.drawable.lock);
-                    else if((i%8)+1 == 7) case7.setImageResource(R.drawable.lock);
-                    else if((i%8)+1 == 8) case8.setImageResource(R.drawable.lock);
+
+                    try {
+                        if (map1.get("algo") == true) case2.setImageResource(R.drawable.algo);
+                    }catch(Exception e){
+                        case2.setImageResource(R.drawable.lock);
+                    }
+
+                    try {
+                        if (map1.get("physique") == true) case3.setImageResource(R.drawable.physique);
+                    }catch(Exception e){
+                        case2.setImageResource(R.drawable.lock);
+                    }
+
+                    try {
+                        if (map1.get("si") == true) case4.setImageResource(R.drawable.si);
+                    }catch(Exception e){
+                        case3.setImageResource(R.drawable.lock);
+                    }
+
+                    try {
+                        if (map1.get("linux") == true) case5.setImageResource(R.drawable.linux);
+                    }catch(Exception e){
+                        case4.setImageResource(R.drawable.lock);
+                    }
+
+                    try {
+                        if (map1.get("isabelle") == true) case6.setImageResource(R.drawable.isabelle);
+                    }catch(Exception e){
+                        case5.setImageResource(R.drawable.lock);
+                    }
+                case7.setImageResource(R.drawable.lock);
+                case8.setImageResource(R.drawable.lock);
+
 
                 }
 
 
-
-            }
         });
 
 
